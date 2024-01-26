@@ -7,9 +7,6 @@ public class PlayerRotation : MonoBehaviour
     private Touch theTouch;
     private Vector2 touchStartPosition, touchEndPosition;
     public Transform camera;
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
