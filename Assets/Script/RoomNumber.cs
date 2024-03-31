@@ -10,17 +10,21 @@ public class RoomNumber : MonoBehaviour
     public bool lab;
     public GameObject SizeOfPlate;
     public string labName;
-    void Start()
+    void Awake()
     {
         if (!lab)
         {
+            SizeOfPlate.transform.localScale = new Vector3(0.02f, 0.4f, 0.7f);
             roomtext.text = "ROOM" + roomNumber;
+            roomtext.transform.localScale = new Vector3(1, 1.5f, 1);
         }
         else if (lab)
         {
-            SizeOfPlate.transform.localScale = new Vector3(0.01f,0.35f,1f);
+            SizeOfPlate.transform.localScale = new Vector3(0.02f,0.35f,0.9f);
             roomtext.text = labName;
             roomtext.fontSize = 1.6f;
+            roomtext.transform.localScale = new Vector3(1, 2.5f, 1);
+            //SizeOfPlate.transform.localScale = new Vector3(0.02f, 0.9f, 0.9f);
         }
     }
 

@@ -9,7 +9,7 @@ public class PlayerRotation : MonoBehaviour
     public Transform camera;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.touchCount > 0)
         {
@@ -30,15 +30,12 @@ public class PlayerRotation : MonoBehaviour
                 {
                     if (Mathf.Abs(x) > Mathf.Abs(y))
                     {
-                        this.transform.Rotate(Vector3.up * speed *2* Time.deltaTime * x);
+                        this.transform.Rotate(Vector3.up * speed * 2 * Time.fixedDeltaTime * x);
                     }
 
                     else
                     {
-                        if (camera.transform.rotation.x < 25 && camera.transform.rotation.x > -25)
-                        {
-                            camera.transform.Rotate(Vector3.right * speed * -y * Time.deltaTime);
-                        }
+                                camera.transform.Rotate(Vector3.right * speed * -y * 2 * Time.fixedDeltaTime);
                     }
                 }
             }

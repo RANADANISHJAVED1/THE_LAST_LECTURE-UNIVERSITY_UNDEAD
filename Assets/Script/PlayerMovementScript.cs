@@ -9,7 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         characterController = this.gameObject.GetComponent<CharacterController>();
     }
-    void Update()
+    void FixedUpdate()
     {
         float horizontalInput = joystick.Horizontal;
         float verticalInput = joystick.Vertical;
