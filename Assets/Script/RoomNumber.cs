@@ -15,13 +15,13 @@ public class RoomNumber : MonoBehaviour
     {
         if (!lab)
         {
-            SizeOfPlate.transform.localScale = new Vector3(0.02f, 0.4f, 0.7f);
+            //SizeOfPlate.transform.localScale = new Vector3(0.02f, 0.4f, 0.7f);
             roomtext.text = "ROOM" + roomNumber;
-            roomtext.transform.localScale = new Vector3(1, 1.5f, 1);
+           // roomtext.transform.localScale = new Vector3(1, 1.5f, 1);
         }
         else if (lab)
         {
-            SizeOfPlate.transform.localScale = new Vector3(0.02f,0.35f,0.9f);
+            //SizeOfPlate.transform.localScale = new Vector3(0.02f,0.35f,0.9f);
             roomtext.text = labName;
             if (extremeModifyPlate)
             {

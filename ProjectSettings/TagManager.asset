@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Door
   - Zombie
+  - Win
   layers:
   - Default
   - TransparentFX

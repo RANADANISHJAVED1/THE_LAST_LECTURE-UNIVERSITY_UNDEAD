@@ -14,6 +14,10 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
     public float laserDuration = 0.05f;
     public float fireTimer;
     public float timedelta;
+    public GameObject blood;
+    public bool bloodRequire;
+    public ParticleSystem gunBulletFire;
+    public int totalBullets;
     public void OnPointerDown(PointerEventData eventData)
     {
        
@@ -31,12 +35,29 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
         {
             if (timedelta>fireTimer)
             {
+                totalBullets--;
                 Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
                 RaycastHit hit;
                 if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
                 {
-                    Destroy(hit.transform.gameObject);
+                    gunBulletFire.Play();
+                    Debug.Log(hit.transform.gameObject.name);
+                   
+                    if (hit.transform.gameObject.CompareTag("Zombie"))
+                    {
+                        hit.transform.gameObject.GetComponentInParent<ZombiesHealthAndCollision>().HealthDecrease(totalBullets);
+
+                        if (bloodRequire)
+                        {
+                            var obj = Instantiate(blood, hit.point, hit.transform.rotation);
+                            obj.transform.parent = hit.transform;
+                        }
+                    }
                     fireTimer = timedelta + fireRate;
+                }
+                else
+                {
+                    gunBulletFire.Play();
                 }
             }
         }
