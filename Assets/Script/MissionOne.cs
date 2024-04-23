@@ -69,7 +69,7 @@ public class MissionOne : MonoBehaviour
             ComputerLabOne.roomState = RoomState.close;
             ComputerLabTwo.roomState = RoomState.close;
         }
-        remainingZombies.text = EnemyCount.ToString();
+        //remainingZombies.text = EnemyCount.ToString();
     }
     public void DicreaseEnemyTwo()
     {

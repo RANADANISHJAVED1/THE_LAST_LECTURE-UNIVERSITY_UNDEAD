@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,6 +19,12 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
     public bool bloodRequire;
     public ParticleSystem gunBulletFire;
     public int totalBullets;
+    public TextMeshProUGUI bulletText;
+    public MissionOne missionOne;
+    private void Awake()
+    {
+       missionOne = GameObject.Find("Game Manager").GetComponent<MissionOne>();
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
        
@@ -33,9 +40,21 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
     {
         if(isPressed)
         {
+            
             if (timedelta>fireTimer)
             {
-                totalBullets--;
+                if (missionOne.missionThreeIsThis)
+                {
+                    if (totalBullets > 0)
+                    {
+                        totalBullets--;
+                        bulletText.text = totalBullets.ToString();
+                    }
+                    else
+                    {
+                        GameObject.Find("Game Manager").GetComponent<UIManager>().gameLose.SetActive(true);
+                    }
+                }
                 Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
                 RaycastHit hit;
                 if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))

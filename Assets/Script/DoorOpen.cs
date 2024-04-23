@@ -19,19 +19,19 @@ public class DoorOpen : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Door"))
             {
-                if (hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.close && !closeDialogue)
+                if (hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.close && !closeDialogue && !doorOpenDialogue.activeSelf)
                 {
                     roomDoorDetail = hit.collider.gameObject.GetComponent<RoomDoorDetail>();
                     doorAnimator = hit.collider.gameObject.transform.parent.transform.parent.GetComponent<Animator>();
                     doorOpenDialogue.SetActive(true);
                 }
-                else if(hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.open && !closeDialogue)
+                else if(hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.open && !closeDialogue && !doorCloseDialogue.activeSelf)
                 {
                     roomDoorDetail = hit.collider.gameObject.GetComponent<RoomDoorDetail>();
                     doorAnimator = hit.collider.gameObject.transform.parent.transform.parent.GetComponent<Animator>();
                     doorCloseDialogue.SetActive(true);
                 }
-                else if(hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.locked && !closeDialogue)
+                else if(hit.collider.gameObject.GetComponent<RoomDoorDetail>().roomState == RoomState.locked && !closeDialogue && !doorLockedDialogue.activeSelf)
                 {
                     doorLockedDialogue.SetActive(true) ;
                 }

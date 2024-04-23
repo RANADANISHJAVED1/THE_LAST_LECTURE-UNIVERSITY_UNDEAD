@@ -21,21 +21,25 @@ public class ZombiesHealthAndCollision : MonoBehaviour
             totalHealth -= 50;
             if (totalHealth <= 0)
             {
+                this.transform.GetChild(1).GetComponent<BoxCollider>().isTrigger=true;
                 zombieAnimationController.SetTrigger("Die");
                 die = true;
                 if (missionOne.missionOneIsThis)
                 {
                     missionOne.DicreaseEnemyOne();
+                    Invoke(nameof(DestroyOnDie), 2);
                 }
                 else if (missionOne.missionTwoIsThis)
                 {
                     missionOne.DicreaseEnemyTwo();
+                    Invoke(nameof(DestroyOnDie), 2);
                 }
                 else if (missionOne.missionThreeIsThis)
                 {
                     missionOne.DicreaseEnemyThree(remainingBullets);
+                    Invoke(nameof(DestroyOnDie), 2);
                 }
-                Invoke(nameof(DestroyOnDie), 2);
+               
             }
         }
     }
