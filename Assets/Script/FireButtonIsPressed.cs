@@ -59,9 +59,11 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
                 RaycastHit hit;
                 if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))
                 {
-                    gunBulletFire.Play();
+                    if (gunBulletFire != null)
+                    {
+                        gunBulletFire.Play();
+                    }
                     Debug.Log(hit.transform.gameObject.name);
-                   
                     if (hit.transform.gameObject.CompareTag("Zombie"))
                     {
                         hit.transform.gameObject.GetComponentInParent<ZombiesHealthAndCollision>().HealthDecrease(totalBullets);
