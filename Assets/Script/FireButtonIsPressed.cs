@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,6 +22,9 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
     public int totalBullets;
     public TextMeshProUGUI bulletText;
     public MissionOne missionOne;
+    public bool fireSound;
+    public AudioSource fireAudioSource;
+    public AudioClip fireSoundClip;
     private void Awake()
     {
        missionOne = GameObject.Find("Game Manager").GetComponent<MissionOne>();
@@ -48,13 +52,21 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
                     if (totalBullets > 0)
                     {
                         totalBullets--;
-                        bulletText.text = totalBullets.ToString();
+                        bulletText.text = "REMAINING BULLETS : " + totalBullets.ToString();
                     }
                     else
                     {
-                        GameObject.Find("Game Manager").GetComponent<UIManager>().gameLose.SetActive(true);
+                        GameObject.Find("Game Manager").GetComponent<UIManager>().GameLooseFunction();
                     }
                 }
+                if (fireSound)
+                {
+                    fireAudioSource.PlayOneShot(fireSoundClip);
+                }
+                /*if (missionOne.gameWinStatus)
+                {
+                    this.gameObject.SetActive(false);
+                }*/
                 Vector3 rayOrigin = playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
                 RaycastHit hit;
                 if (Physics.Raycast(rayOrigin, playerCamera.transform.forward, out hit, gunRange))

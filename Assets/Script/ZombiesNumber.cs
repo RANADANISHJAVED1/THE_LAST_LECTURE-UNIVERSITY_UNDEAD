@@ -8,6 +8,9 @@ public class ZombiesNumber : MonoBehaviour
     public bool none;
     public GameObject zombieOne;
     public GameObject zombieTwo;
+    public GameObject chairs;
+    public RoomDoorDetail roomOne;
+    public RoomDoorDetail roomTwo;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,18 +18,27 @@ public class ZombiesNumber : MonoBehaviour
         {
             zombieOne.SetActive(false);
             zombieTwo.SetActive(false);
+            chairs.SetActive(true);
         }
         else if (twoZombies)
         {
             zombieOne.SetActive(true);
             zombieTwo.SetActive(true);
+            chairs.SetActive(false);
         }
         else
         {
             zombieOne.SetActive(true);
             zombieTwo.SetActive(false);
+            chairs.SetActive(false);
+        }
+        if(roomOne.roomState== RoomState.locked && roomTwo.roomState == RoomState.locked)
+        {
+            zombieOne.SetActive(false);
+            zombieTwo.SetActive(false);
+            chairs.SetActive(false);
         }
     }
 
-   
+
 }

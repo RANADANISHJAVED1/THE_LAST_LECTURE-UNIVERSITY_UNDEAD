@@ -8,7 +8,9 @@ public class zombieCollisionDetection : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("Game Manager").GetComponent<UIManager>().gameLose.SetActive(true);
+            GameObject.Find("Game Manager").GetComponent<UIManager>().GameLooseFunction();
+            
+            collision.gameObject.GetComponent<CharacterController>().enabled = false;
         }
     }
 }

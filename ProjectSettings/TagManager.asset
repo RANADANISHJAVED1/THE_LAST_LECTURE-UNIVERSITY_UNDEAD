@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Zombie
   - Win
+  - Gun
   layers:
   - Default
   - TransparentFX

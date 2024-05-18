@@ -8,7 +8,24 @@ public class UIManager : MonoBehaviour
     public GameObject gameWin;
     public GameObject gameLose;
     public GameObject pausePanal;
-     public void ReloadScene()
+    public GameObject levelCompleteText;
+    public AudioSource gameWinLoseSoundEffect;
+    public AudioClip gameWinSound;
+    public AudioClip gameLoseSound;
+    public void GameLooseFunction()
+    {
+        gameLose.SetActive(true);
+        gameWinLoseSoundEffect.PlayOneShot(gameLoseSound);
+    }
+    public void MissionCompleteSoundEffect()
+    {
+        gameWinLoseSoundEffect.PlayOneShot(gameWinSound);
+    }
+    public void MissionComplete()
+    {
+        levelCompleteText.SetActive(true);
+    }
+    public void ReloadScene()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
