@@ -47,7 +47,7 @@ public class FireButtonIsPressed : MonoBehaviour, IPointerDownHandler, IPointerU
             
             if (timedelta>fireTimer)
             {
-                if (missionOne.missionThreeIsThis)
+                if (missionOne.missionThreeIsThis && !missionOne.gameWinStatus)
                 {
                     if (totalBullets > 0)
                     {

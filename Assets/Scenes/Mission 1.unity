@@ -12090,6 +12090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomLineFoodDepartmentLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 2792779251448355332, guid: 6ae3e6e0598e48f40b01ca276f30da1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2792779251448355333, guid: 6ae3e6e0598e48f40b01ca276f30da1f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -13233,6 +13237,10 @@ PrefabInstance:
       propertyPath: twoZombies
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2750241116527564272, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2854049002230192303, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
       propertyPath: lab
       value: 1
@@ -13307,6 +13315,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5295915387172584650, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
       propertyPath: roomNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295915387172584650, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
+      propertyPath: extremeModifyPlate
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5295915387236806302, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
@@ -13548,6 +13560,10 @@ PrefabInstance:
     - target: {fileID: 9187551514588666427, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
       propertyPath: none
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187551514588666427, guid: 027c2c7f66a5a6d48969448e6ce1aa34, type: 3}
+      propertyPath: twoZombies
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
